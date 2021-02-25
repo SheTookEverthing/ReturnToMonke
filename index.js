@@ -2,14 +2,14 @@ const express = require('express');
 const ejs = require('ejs');
 const path = require('path');
 
-const clinetPath = path.join(__dirname, '../client');
+const clinetPath = path.join(__dirname, '../client')
 const staticPath = path.join(clientPath,'/static');
-const viewPath = path.join(client.Path,'/views');
+const viewPath = path.join(client.Path,'/views')
 
 const app = express();
 
 app.set('view engine','ejs');
-app.set('view',viewPath);
+app.set('views',viewPath);
 
 //this takes functions and response
 app.get('/', function(req, res){
