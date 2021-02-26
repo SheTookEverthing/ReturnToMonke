@@ -4,6 +4,7 @@
     <title>
         Monke Music
     </title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
 
 <style>
@@ -22,15 +23,17 @@
 </style>
 
 <body>
+    <div id = "mainpanel">
     <p>
         Relax and Enjoy the Beat
     </p>
-
+    </div>
     <div align="center">
     <audio id="player" controls autoplay loop>
         <source src = "monkeBeat.mp3" type ="audio/mpeg">
     </audio>
     </div>
-
+    <%- include('navbar.ejs') %>
 </body>
+
 </html>
