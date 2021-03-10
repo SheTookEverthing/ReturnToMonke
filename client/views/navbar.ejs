@@ -2,12 +2,13 @@
 <form method="post" action="welcome">
         <a href="/">Home</a> &diam;
         <a href="/monkeflip">MonkeFlip</a> &diam;
-        <% if (nomen) { %>
+        <a href="/monkeMusic">Monke Type Beat</a>
+        <% if(nomen) { %>
                 Hello <%=nomen%>!
         <% } else { %>
-        <a href="/monkeMusic">Monke Type Beat</a>
         <input type="text" name="visitorname" />
+        
         <button> Tell me your name</button>
-        }
+        <% } %>
 </form>        
 </div>

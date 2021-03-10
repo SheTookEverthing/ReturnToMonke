@@ -14,7 +14,7 @@ app.use(express.static(staticPath));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({
     name: 'monke',
-    secert: 'monkegetabanana',
+    secret: 'monkegetabanana',
     saveUninitialized: false,
     resave: false,
     cookie: {
