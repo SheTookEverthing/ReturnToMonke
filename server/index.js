@@ -29,19 +29,20 @@ app.set('views',viewsPath);
 //this takes functions and response
 
 app.get('/', function(req, res){
-    res.render('index', {nomen:  req.session.userName});
+    res.render('index', {data:  req.session});
 });
 
 app.get('/monkeflip', function(req, res){
-    res.render('monkeflip');
+    res.render('monkeflip', {data:  req.session});
 });
 
 app.get('/monkeMusic', function(req, res){
-    res.render('monkeMusic');
+    res.render('monkeMusic', {data:  req.session});
 });
 
 app.post('/welcome', (req, res) => {
-    req.session.userName = req.body.visitorname;
-    res.redirect('/');
+    console.log(req.body);
+    req.session.username = req.body.nombre;
+    res.send('SUCCESS');
 });
 
