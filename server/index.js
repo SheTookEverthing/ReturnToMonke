@@ -3,7 +3,8 @@ const ejs = require('ejs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-
+const mongoose = require('mongoose');
+const {BlogPost} = require('./models.js');
 
 const clientPath = path.join(__dirname, '../client/')
 const staticPath = path.join(clientPath,'/static/');
@@ -21,6 +22,9 @@ app.use(session({
         maxAge: 1000*60*60*24*3,
     }
 }));
+
+
+mongoose.connect('mongodb://localhost:27017/monkememes',{useNewUrlParser: true});
 app.listen(2000);
 
 app.set('view engine','ejs');
@@ -40,9 +44,22 @@ app.get('/monkeMusic', function(req, res){
     res.render('monkeMusic', {data:  req.session});
 });
 
-app.post('/welcome', (req, res) => {
+app.get('/blog', (req,res)=>{
+    res.render('blog' , {data: req.session});
+});
+
+app.get('/blog/write/', (req,res)=>{
+    res.render('writing' , {data: req.session});
+});
+
+app.post('/blog/writepost', async (req,res)=>{
     console.log(req.body);
+    let newPost = new BlogPost(req.body);
+    await newPost.save();
+    res.redirect('/blog/');
+});
+
+app.post('/welcome', (req, res) => {
     req.session.username = req.body.nombre;
     res.send('SUCCESS');
 });
-
