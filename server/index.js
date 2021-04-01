@@ -54,14 +54,14 @@ app.get('/blog/write/', (req,res)=>{
 
 app.post('/blog/writepost', async (req,res)=>{
     console.log(req.body);
-    try{
+    /*try{*/
         let newPost = new BlogPost(req.body);
         await newPost.save();
         res.redirect('/blog/');
-    }
+    /*}
     catch(e){
         res.redirect('/blog/write/')
-    }
+    }*/
 });
 
 app.post('/welcome', (req, res) => {
