@@ -9,6 +9,10 @@ const blogpostSchema = new mongoose.Schema({
     body:{
         type: String,
         required: true
+    },
+},{
+    timestamps: {
+        createdAt: "created_at"
     }
 });
 

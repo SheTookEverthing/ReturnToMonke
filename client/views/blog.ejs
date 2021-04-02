@@ -1,14 +1,24 @@
 <html>
-    <head>
-        <title>MMM</title>
-        <%- include('header.ejs') %>
-    </head>
-    <body>
+
+<head>
+    <title>MMM</title>
+    <%- include('header.ejs') %>
+</head>
+
+<body>
+    <div id="mainpanel">
         <h1>More Monke Memes </h1>
 
+        <table>
+            <% postset.forEach(function(bpost) { %>
+                <%- include('blogpostpreview',{post:bpost}) %>
+                    <% }) %>
+        </table>
+        <br /><br />
         <a href="write/">Write a post</a>
-
         <%- include('navbar.ejs') %>
+    </div>
 
-    </body>
+</body>
+
 </html>
